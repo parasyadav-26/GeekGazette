@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - BlogPedia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1.5em;
+            text-align: center;
+            border-bottom: 3px solid #34495e;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Form Styling */
+        form {
+            padding: 2em;
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input[type="text"], 
+        .form-group input[type="email"], 
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #2c3e50;
+            outline: none;
+        }
+
+        /* Submit Button Styling */
+        button[type="submit"] {
+            width: 100%;
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.75em;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #34495e;
+        }
+
+        /* Login Link Styling */
+        .login-link {
+            text-align: center;
+            margin-top: 1.5em;
+        }
+
+        .login-link a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .container {
+                margin: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Create an Account</h1>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link">
+            <a href="{% url 'login' %}">Already have an account? Log in</a>
+        </div>
+    </div>
+</body>
+</html>
