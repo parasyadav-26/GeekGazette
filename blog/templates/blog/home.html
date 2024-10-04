@@ -2,12 +2,18 @@
 <html>
 <head>
     <title>BlogPedia</title>
+    {% load static %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            height: 100vh;
+            background-image: url("{% static 'images/img2.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         nav {
@@ -28,20 +34,35 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 2em auto;
             padding: 1em;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
         
         .post {
+            background-color: #fff;
+            padding: 1em;
             margin-bottom: 2em;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .post:hover {
+            transform: translateY(-5px);
         }
         
         .post h3 {
             margin-top: 0;
+        }
+        
+        .post p {
+            font-size: 1.1em;
+            line-height: 1.6;
         }
         
         .post small {
